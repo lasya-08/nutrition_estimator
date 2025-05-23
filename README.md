@@ -1,35 +1,51 @@
+# About the Project
+
 This project provides a FastAPI-based REST API that calculates the nutritional information of a dish using an LLM (Large Language Model) and fuzzy matching against a nutritional database.
 
-🚀 Project Overview
+# 🚀 Project Overview
+
 This application allows users to get nutritional insights for a dish simply by passing its name through a REST API.
 
-🔄 Flow of the Application
+## 🔄 Flow of the Application
+
 1. Ingredient Extraction
+
 The name of the dish is passed to an LLM, which extracts the probable ingredients.
 
 2. Fuzzy Matching
+
 Extracted ingredients are matched against a nutrition database using rapidfuzz to handle:
 
 Spelling mistakes
 Synonyms (e.g., “curd” vs. “yogurt”)
 
 3. Standardization
+
 Ingredient quantities are standardized to grams for consistency using LLM.
 
 4. Nutrient Calculation
+
 Total nutritional values (per 100g) are calculated for:
+
 Protein
+
 Carbohydrates
+
 Fat
+
 Fibre
 
 5. Dish Categorization
+
 Based on the extracted nutrient weights, the dish is categorized into predefined types like:
+
 Wet Rice Item
+
 Veg Gravy
+
 Non-Veg Gravy
 
-Tech Stack
+## Tech Stack
 1. Python 3.9
 2. FastAPI - Web Framework
 3. Uvicorn - ASGI Server
@@ -41,20 +57,29 @@ Tech Stack
 To start the project:
 
 1. Create a virtual environment
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
 
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  
+    ```
 2. Install dependencies
+
+    ```bash
     pip install -r requirements.txt
+    ``
 
 3. Load the credentials from .env file
+
 Create a .env file and add any required credentials, API keys, or model paths.
 
 4. Run the following command to start the server:
+```bash
  uvicorn main:app --reload
+ ``
 
 Examples:
-1.Paneer butter masala:{
+
+1. Paneer butter masala:{
     "data": {
         "estimated_nutrition": [
             {
@@ -141,6 +166,7 @@ Examples:
         }
     ]
 }
+
 2. Sandwich
 {
     "data": {
@@ -205,6 +231,7 @@ Examples:
         }
     ]
 }
+
 3. Chicken curry
 {
     "data": {
