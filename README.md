@@ -9,40 +9,28 @@ This application allows users to get nutritional insights for a dish simply by p
 ## 🔄 Flow of the Application
 
 1. Ingredient Extraction
-
 The name of the dish is passed to an LLM, which extracts the probable ingredients.
 
 2. Fuzzy Matching
-
 Extracted ingredients are matched against a nutrition database using rapidfuzz to handle:
-
 Spelling mistakes
 Synonyms (e.g., “curd” vs. “yogurt”)
 
 3. Standardization
-
 Ingredient quantities are standardized to grams for consistency using LLM.
 
 4. Nutrient Calculation
-
 Total nutritional values (per 100g) are calculated for:
 
 Protein
-
 Carbohydrates
-
 Fat
-
 Fibre
 
 5. Dish Categorization
-
 Based on the extracted nutrient weights, the dish is categorized into predefined types like:
-
 Wet Rice Item
-
 Veg Gravy
-
 Non-Veg Gravy
 
 ## Tech Stack
@@ -66,7 +54,7 @@ To start the project:
 
     ```bash
     pip install -r requirements.txt
-    ``
+    ```
 
 3. Load the credentials from .env file
 
@@ -75,7 +63,7 @@ Create a .env file and add any required credentials, API keys, or model paths.
 4. Run the following command to start the server:
 ```bash
  uvicorn main:app --reload
- ``
+ ```
 
 Examples:
 
